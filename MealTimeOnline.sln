@@ -4,8 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealTimeOnline", "MealTimeOnline\MealTimeOnline.csproj", "{EA42711F-D48A-4701-A9BB-456C1243847D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9421466E-9533-4CA0-AC85-6971C0B41028} = {9421466E-9533-4CA0-AC85-6971C0B41028}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealTimeOnline.Tests", "MealTimeOnline.Tests\MealTimeOnline.Tests.csproj", "{8042B2B6-928D-4D27-A60B-ED3DA297007E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9421466E-9533-4CA0-AC85-6971C0B41028} = {9421466E-9533-4CA0-AC85-6971C0B41028}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{9421466E-9533-4CA0-AC85-6971C0B41028}"
 EndProject
