@@ -77,3 +77,13 @@ body {
 .text-center a {
     text-decoration: none;
 }
+
+/*
+    User SignUp
+*/
+
+.signup-container{
+    margin-top: 70px;
+    width: 400px;
+    padding-right:25px;
+}
