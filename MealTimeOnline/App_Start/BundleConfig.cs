@@ -20,7 +20,11 @@ namespace MealTimeOnline
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+<<<<<<< HEAD
+                      "~/Scripts/bootstrap.min.js",
+=======
                       "~/Scripts/bootstrap.js",
+>>>>>>> tmp
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

@@ -1,0 +1,69 @@
+﻿<!--Code by AK4TRL
+    Edit by Liuacg
+-->
+<div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="#" class="navbar-brand">Where To Eat</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Order</a></li>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Contact</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                    About<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Why</a></li>
+                    <li><a href="#">How</a></li>
+                    <li><a href="#">who</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <form action="#" class="navbar-form clearfix">
+                    <div class="form-group col-xs-6" style="padding-left: 2px; padding-right: 2px">
+                        <a href="#" id="nav-left" role="button" class="btn btn-default btn-block" onclick="addLoginAttr()">Log in</a>
+                    </div>
+                    <div class="form-group col-xs-6" style="padding-left: 2px; padding-right: 2px">
+                        <a href="/user/signup" id="nav-right" role="button" class="btn btn-success btn-block">Sign up</a>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--modal-->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Log in</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="control-label" for="loginEmail" id="loginEmailLabel">Email Address</label>
+                    <input type="email" class="form-control" id="loginEmail" placeholder="Email" required="" autofocus="" name="Mail">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="loginPassword">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Password" required="" name="Password">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success" onclick="">Log in</button>
+            </div>
+        </div>
+    </div>
+</div>

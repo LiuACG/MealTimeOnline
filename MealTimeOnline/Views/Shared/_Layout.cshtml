@@ -6,13 +6,29 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Where To Eat | @ViewBag.title</title>
+<<<<<<< HEAD
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/mto.js")
+=======
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
+>>>>>>> tmp
 </head>
 
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<<<<<<< HEAD
+        @{ 
+            Html.RenderPartial("navStatus");
+        }
+    </nav>
+
+    @RenderBody()
+
+=======
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1">
@@ -57,6 +73,7 @@
     </nav>
 
     @RenderBody()
+>>>>>>> tmp
     <hr />
     <br />
     <footer>
