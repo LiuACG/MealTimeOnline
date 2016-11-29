@@ -13,3 +13,5 @@ function addAboutAttr() {
         $('#about').attr("data-target", "#myModal");
     }
 }
+
+$("html").niceScroll({ styler: "fb", cursorcolor: "#CCC", cursorwidth: '6', cursorborderradius: '0px', background: '#424f63', spacebarenabled: false, cursorborder: '0', zindex: '1000' });

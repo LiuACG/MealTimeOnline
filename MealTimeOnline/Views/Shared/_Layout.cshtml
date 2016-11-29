@@ -6,13 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Where To Eat | @ViewBag.title</title>
-    @Scripts.Render("~/bundles/modernizr")
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/Scripts/mto.js")
-
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/css/user")
 </head>
 
 <body>
@@ -32,7 +26,11 @@
         </div>
     </footer>
     <br />
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/nicescroll")
+    @Scripts.Render("~/Scripts/mto.js")
     @RenderSection("scripts", false)
 </body>
 </html>
