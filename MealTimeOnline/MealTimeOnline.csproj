@@ -201,7 +201,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+<<<<<<< HEAD
     <Content Include="Scripts\mto.js" />
+=======
+>>>>>>> tmp
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
@@ -222,7 +225,10 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\SignUp.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Shared\navStatus.cshtml" />
+=======
+>>>>>>> tmp
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

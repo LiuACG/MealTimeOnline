@@ -6,14 +6,21 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Where To Eat | @ViewBag.title</title>
+<<<<<<< HEAD
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/Scripts/mto.js")
+=======
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+>>>>>>> tmp
 </head>
 
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<<<<<<< HEAD
         @{ 
             Html.RenderPartial("navStatus");
         }
@@ -21,6 +28,52 @@
 
     @RenderBody()
 
+=======
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Where To Eat</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Order</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                            About<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Why</a></li>
+                            <li><a href="#">How</a></li>
+                            <li><a href="#">who</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <form action="#" class="navbar-form clearfix">
+                            <div class="form-group col-xs-6" style="padding-left: 2px; padding-right: 2px">
+                                <a href="#" role="button" class="btn btn-default btn-block">Log in</a>
+                            </div>
+                            <div class="form-group col-xs-6" style="padding-left: 2px; padding-right: 2px">
+                                <a href="/user/signup" role="button" class="btn btn-success btn-block">Sign up</a>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @RenderBody()
+>>>>>>> tmp
     <hr />
     <br />
     <footer>
