@@ -23,9 +23,17 @@ namespace MealTimeOnline
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/Content/css/user").Include(
                       "~/Content/css/bootstrap.css",
                       "~/Content/css/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/nicescroll", "//cdn.bootcss.com/jquery.nicescroll/3.6.8/jquery.nicescroll.min.js").Include(
+                      "~/Scripts/jquery.nicescroll.min.js"));
+
+            bundles.UseCdn = true;
+#if !DEBUG
+            BundleTable.EnableOptimizations = true;
+#endif
         }
     }
 }
