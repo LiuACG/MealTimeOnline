@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Where To Eat | @ViewBag.title</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/mto.js")
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        @{ 
+            Html.RenderPartial("navStatus");
+        }
+    </nav>
+
+    @RenderBody()
+
+    <hr />
+    <br />
+    <footer>
+        <div class="text-center">
+            &copy; 2016 A ZSC Team
+        </div>
+    </footer>
+    <br />
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", false)
+</body>
+</html>

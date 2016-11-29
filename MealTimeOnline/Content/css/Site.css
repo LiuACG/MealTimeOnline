@@ -1,0 +1,89 @@
+﻿/*
+    Base style
+*/
+
+body {
+    margin-top: 100px;
+}
+
+@media (min-width: 768px) {
+    .jumbotron h1 {
+        font-size: 54px;
+    }
+}
+
+@media (min-width: 992px) {
+    .vertical-center {
+        min-height: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .vertical-align {
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-form {
+        margin: 8px 0;
+    }
+}
+
+/*
+    Home Index
+*/
+
+.jumbotron-index {
+    background: url('/Content/images/main.jpg') center;
+    background-size: cover;
+}
+
+/**********************************************/
+
+.contain-center-gray {
+    background: rgba(217, 208, 208, 0.75);
+}
+
+.contain-zone {
+    padding: 30px 0;
+}
+
+.email-notice {
+    text-indent: 2em;
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-size: 12px;
+    color: #000;
+    text-shadow: #000;
+}
+
+.float-md-right {
+    float: right;
+    height: 260px;
+}
+
+.float-md-left {
+    float: left;
+    height: 280px;
+}
+
+.float-md-center {
+    padding-top: 1px;
+}
+
+.text-center a {
+    text-decoration: none;
+}
+
+/*
+    User SignUp
+*/
+
+.signup-container{
+    margin-top: 70px;
+    width: 400px;
+    padding-right:25px;
+}
