@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealTimeOnline.Tests", "Mea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{9421466E-9533-4CA0-AC85-6971C0B41028}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLayer", "BusinessLogicLayer\BusinessLogicLayer.csproj", "{27C9A494-8688-4490-9283-D08DF3C7D840}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{9421466E-9533-4CA0-AC85-6971C0B41028}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9421466E-9533-4CA0-AC85-6971C0B41028}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9421466E-9533-4CA0-AC85-6971C0B41028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C9A494-8688-4490-9283-D08DF3C7D840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C9A494-8688-4490-9283-D08DF3C7D840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C9A494-8688-4490-9283-D08DF3C7D840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C9A494-8688-4490-9283-D08DF3C7D840}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
