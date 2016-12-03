@@ -13,6 +13,12 @@ namespace MealTimeOnline
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // 认证路由
+            routes.MapRoute(
+                name: "Auth",
+                url: "Auth/{controller}/{action}/{id}"
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
