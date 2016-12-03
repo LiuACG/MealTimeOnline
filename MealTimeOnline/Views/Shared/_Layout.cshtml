@@ -15,16 +15,18 @@
     }
 
     @RenderBody()
-
-    <hr />
-    <br />
     <footer>
-        <div class="text-center">
-            &copy; 2016 A ZSC Team
+        <div class="container">
+            <hr />
+            <br />
+
+            <div class="text-center">
+                &copy; 2016 A ZSC Team
+            </div>
         </div>
     </footer>
-    <br />
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/nicescroll")
