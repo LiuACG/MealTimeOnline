@@ -33,9 +33,5 @@ namespace MealTimeOnline.ViewModels.Auth
         [Required(ErrorMessage = "邮箱地址不能为空")]
         [EmailAddress(ErrorMessage = "邮箱地址格式不正确")]
         public string Email { get; set; }
-
-        [DisplayName("License")]
-        [Required(ErrorMessage = "必须同意条款才能注册")]
-        public bool License { get; set; }
     }
 }

@@ -19,11 +19,11 @@ namespace MealTimeOnline.Controllers
         // POST: Auth/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginViewModel login) // [Bind(Include = "Username,Password,Remenber")]
+        public ActionResult Login(LoginViewModel login, string returnUrl) // [Bind(Include = "Username,Password,Remenber")]
         {
             if(ModelState.IsValid)
             {
-                return Content("Pass");
+                return Redirect(returnUrl ?? Url.Action("Index", "Home"));
             }
             return View();
         }
@@ -40,7 +40,7 @@ namespace MealTimeOnline.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SignUp(SignUpViewModel signUpViewModel)
         {
-            if(ModelState.IsValid && signUpViewModel.License == true)
+            if(ModelState.IsValid)
             {
                 return Content("Pass");
             }
