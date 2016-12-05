@@ -82,8 +82,8 @@ body {
     User SignUp
 */
 
-.signup-container{
+.signup-container {
     margin-top: 70px;
-    width: 400px;
-    padding-right:25px;
+    padding-right: 20%;
+    margin-left: 20%;
 }
