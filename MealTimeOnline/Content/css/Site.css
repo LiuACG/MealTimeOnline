@@ -79,11 +79,30 @@ body {
 }
 
 /*
-    User SignUp
+    Auth SignUp
 */
 
 .signup-container {
     margin-top: 70px;
     padding-right: 20%;
     margin-left: 20%;
+}
+
+/*
+    Order Canteen
+*/
+.wrapper{
+    margin-top:90px;
+    height:100px;
+    border:1px #000 solid;
+}
+.sorts{
+    margin-top:45px;
+    height:45px;
+    border:1px #000 solid;
+}
+.rstbox{
+    margin-top:20px;
+    border:1px #000 solid;
+    height:894px;
 }
