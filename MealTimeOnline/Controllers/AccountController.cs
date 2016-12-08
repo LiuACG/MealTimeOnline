@@ -19,5 +19,17 @@ namespace MealTimeOnline.Controllers
         {
             return View();
         }
+
+        // GET: Accoutn/Security
+        public ActionResult Security()
+        {
+            return View();
+        }
+
+        // GET: Accoutn/Modifypassword
+        public ActionResult Modifypassword()
+        {
+            return View();
+        }
     }
 }
