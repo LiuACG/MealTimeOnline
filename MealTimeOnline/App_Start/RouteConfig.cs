@@ -20,6 +20,12 @@ namespace MealTimeOnline
             );
 
             routes.MapRoute(
+                name: "Image Placeholder",
+                url: "Image/{action}/{width}x{height}/{text}",
+                defaults: new { controller = "Image", action = "Placeholder", text = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

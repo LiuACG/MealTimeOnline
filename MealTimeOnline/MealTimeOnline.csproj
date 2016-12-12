@@ -175,9 +175,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\TestController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DataAccessLayer\MtoDataContext.cs" />
     <Compile Include="DataAccessLayer\UserDAL.cs" />
     <Compile Include="Global.asax.cs">
@@ -187,6 +187,7 @@
     <Compile Include="Models\Common\PeopleCategory.cs" />
     <Compile Include="Models\Consumer\CartItem.cs" />
     <Compile Include="Models\Consumer\OrderItem.cs" />
+    <Compile Include="Models\Consumer\PasswordReset.cs" />
     <Compile Include="Models\Consumer\Payment.cs" />
     <Compile Include="Models\Consumer\RedPacket.cs" />
     <Compile Include="Models\Dealer\Canteen.cs" />
@@ -198,7 +199,10 @@
     <Compile Include="Models\Consumer\Favorite.cs" />
     <Compile Include="Models\Consumer\Order.cs" />
     <Compile Include="Models\Dealer\CanteenCategory.cs" />
+    <Compile Include="Models\Dealer\EnterRegister.cs" />
     <Compile Include="Models\MtoTestContext.cs" />
+    <Compile Include="Models\Privilege.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Auth\LoginViewModel.cs" />
@@ -285,8 +289,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="BusinessLogicLayer\" />
     <Folder Include="Content\images\" />
+    <Folder Include="Views\Image\" />
     <Folder Include="Views\Test\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

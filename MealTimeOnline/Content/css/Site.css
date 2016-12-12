@@ -44,13 +44,15 @@ dl {
 */
 
 .jumbotron-index {
-    background: url('/Content/images/main.jpg') center;
+    background: url('/Content/images/home-bg-1.jpg') center;
+    -ms-background-size: cover;
     background-size: cover;
 }
 
 /**********************************************/
 
 .contain-center-gray {
+    background: #d9d0d0;
     background: rgba(217, 208, 208, 0.75);
 }
 
