@@ -31,5 +31,11 @@ namespace MealTimeOnline.Controllers
         {
             return View();
         }
+
+        // GET: Accoutn/Evaluated
+        public ActionResult Evaluated()
+        {
+            return View();
+        }
     }
 }
