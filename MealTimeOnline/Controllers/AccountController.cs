@@ -43,5 +43,11 @@ namespace MealTimeOnline.Controllers
         {
             return View();
         }
+
+        // GET: Accoutn/BusinessVerified
+        public ActionResult BusinessVerified()
+        {
+            return View();
+        }
     }
 }
