@@ -1,6 +1,15 @@
 ﻿/*
     fa etc.
 */
+h4{
+    margin:0;
+    padding:0;
+    color:#fff;
+    line-height:30px;
+}
+a{
+    text-decoration:none;
+}
 .fa-newstyle{
     color:#fff !important;
     font-size:14px;
@@ -11,6 +20,7 @@
 .modal-title .fa{
     margin-right:14px;
 }
+
 .greet a{
     width: 32px;
     height: 32px;
@@ -110,7 +120,7 @@
     float: left;
 }
 
-.portrait img {
+.infoimg {
     width: 98px;
     height: 98px;
 }
@@ -166,4 +176,65 @@ ul > li > a:link {
 .right-side .bound,
 .right-side .set {
   color: #63b97c;
+}
+.panel-content{
+    border: 1px solid #f3f3f3;
+    background-color:#fafafa; 
+    width:100%; 
+    height:80px; 
+    margin-top:15px; 
+    display:inline-block;
+}
+/*
+    Evaluated
+*/
+
+.rstinfo{
+    display:table-cell;
+    margin-left:30px;
+    padding-top:15px;
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+}
+.rstinfo img{
+    width:50px;
+    height:50px;
+}
+.orderinfo-time{
+    display: table-cell;
+    color: #999;
+    vertical-align: middle;
+}
+.orderinfo-comment{
+    margin-top:38px;
+}
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  font-size:24px;
+  margin-left:10px;
+  vertical-align:middle;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating span.fa-star:before {
+    content: "\f006";
+    padding-right: 5px;
+    color: #777777;
+}
+.rating span.fa-star:hover:before,
+.rating span.fa-star:hover ~ span.fa-star:before {
+    content: "\f005";
+    color: #e3cf7a;
+}
+/**
+    AccountBalance
+*/
+.balance-summary {
+    margin: 12px 0 24px;
+    padding: 19px;
 }
