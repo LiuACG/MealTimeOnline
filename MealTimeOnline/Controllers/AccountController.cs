@@ -37,5 +37,11 @@ namespace MealTimeOnline.Controllers
         {
             return View();
         }
+
+        // GET: Accoutn/AccountBalance
+        public ActionResult AccountBalance()
+        {
+            return View();
+        }
     }
 }
