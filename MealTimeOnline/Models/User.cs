@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MealTimeOnline.Models.Common;
 using MealTimeOnline.Models.Consumer;
+using MealTimeOnline.Models.Dealer;
 
 namespace MealTimeOnline.Models
 {
@@ -32,6 +33,10 @@ namespace MealTimeOnline.Models
         [DataType(DataType.Password)]
         [StringLength(64, MinimumLength = 4)]
         public string Password { get; set; } // 密码
+
+        [Display(Name = "禁用")]
+        [Required(ErrorMessage = "IsBanded不能为空")]
+        public bool IsBanded { get; set; }
 
         [StringLength(512)]
         [DataType(DataType.ImageUrl)]
@@ -77,11 +82,20 @@ namespace MealTimeOnline.Models
         public int Credits { get; set; } // 积分
         #endregion // 财富值
 
+        [Display(Name = "权限")]
+        [Required(ErrorMessage = "必须选择权限")]
+        public int RoleId { get; set; }
+        public virtual Role Role { get; set; }
+
         public virtual ICollection<Address> Addresses { get; set; } // 一个用户有多个地址
         public virtual ICollection<Favorite> Favorites { get; set; } // 一个用户有多个收藏
         public virtual ICollection<Order> Orders { get; set; } // 一个用户有多个订单
         public virtual ICollection<Cart> Carts { get; set; } // 一个用户有多个购物车(每个商家一个)
         public virtual ICollection<Evaluate> Evaluates { get; set; } // 一个用户有多个评价
         public virtual ICollection<RedPacket> RedPackets { get; set; } // 一个用户有多个红包
+
+        public virtual PasswordReset PasswordReset { get; set; }
+
+        public virtual ICollection<EnterRegister> Registers { get; set; } // 一个用户有多个申请
     }
 }
