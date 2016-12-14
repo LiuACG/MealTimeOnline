@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MealTimeOnline.Models.Common;
+using MealTimeOnline.Models.Consumer;
 using MealTimeOnline.Models.Dealer;
 
 namespace MealTimeOnline.Models.Commodity
@@ -17,7 +18,7 @@ namespace MealTimeOnline.Models.Commodity
 
         [Display(Name = "适合人群")]
         public int? PeopleCategoryId { get; set; } // 适合人群//最好做成选择列表
-        public PeopleCategory PeopleCategory { get; set; }
+        public virtual PeopleCategory PeopleCategory { get; set; }
 
         [Display(Name = "名称")]
         [Required(ErrorMessage = "名称不能为空")]
@@ -51,5 +52,8 @@ namespace MealTimeOnline.Models.Commodity
         public string Images { get; set; } // 一个菜对应多个图, 用Json数组保存图片地址
 
         public virtual ICollection<Evaluate> Evaluates { get; set; } // 一个菜对应多个评价
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
+        public virtual ICollection<CartItem> CartItems { get; set; }
+        public virtual ICollection<Favorite> Favorites { get; set; }
     }
 }

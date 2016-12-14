@@ -177,6 +177,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OrderItemsController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="DataAccessLayer\MtoDataContext.cs" />
     <Compile Include="DataAccessLayer\UserDAL.cs" />
@@ -200,7 +202,6 @@
     <Compile Include="Models\Consumer\Order.cs" />
     <Compile Include="Models\Dealer\CanteenCategory.cs" />
     <Compile Include="Models\Dealer\EnterRegister.cs" />
-    <Compile Include="Models\MtoTestContext.cs" />
     <Compile Include="Models\Privilege.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
@@ -284,6 +285,16 @@
     <Content Include="Views\Account\_accountLayout.cshtml" />
     <Content Include="Views\Order\Canteen.cshtml" />
     <Content Include="Views\Auth\PrivacyPolicy.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\OrderItems\Create.cshtml" />
+    <Content Include="Views\OrderItems\Delete.cshtml" />
+    <Content Include="Views\OrderItems\Details.cshtml" />
+    <Content Include="Views\OrderItems\Edit.cshtml" />
+    <Content Include="Views\OrderItems\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

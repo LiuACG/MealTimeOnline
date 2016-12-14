@@ -97,7 +97,6 @@ namespace MealTimeOnline.Models.Consumer
         public int CanteenId { get; set; }
         public virtual Canteen Canteen { get; set; } // 一个订单对应一个食堂
 
-        //public virtual ICollection<Food> FoodList { get; set; } // 一个订单对应多个菜
         public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }
