@@ -17,27 +17,62 @@
 
     <div class="container-fluid">
         <div class="wrapper">
-            wrapper
-            <p>广告位长期招收</p>
+            <img src="@Url.Action("Placeholder", "Image", new { width = 1110, height = 100, text = "广告位长期招收" })" />
         </div>
     </div>
 
     <div class="container-fluid">
         <div class="Business-sorts">
-            <span>商家分类：</span>
+            <span>食堂分类：</span>
             <ul>
-                <li><a href="#" class="current" onclick="showSelected()">全部商家</a></li>
-                <li><a href="#" onclick="showSelected()">快餐便当</a></li>
-                <li><a href="#" onclick="showSelected()">特色菜系</a></li>
-                <li><a href="#" onclick="showSelected()">异国料理</a></li>
-                <li><a href="#" onclick="showSelected()">小吃宵夜</a></li>
-                <li><a href="#" onclick="showSelected()">甜品饮品</a></li>
-                <li><a href="#" onclick="showSelected()">商店超市</a></li>
+                <li><a href="#" class="current" onclick="showSelected(); showTab('rstbox', 0)">全部食堂</a></li>
+                <li><a href="#" onclick="showSelected(); showTab('rstbox', 1)">龙腾</a></li>
+                <li><a href="#" onclick="showSelected(); showTab('rstbox', 2)">香晖</a></li>
+                <li><a href="#" onclick="showSelected(); showTab('rstbox', 3)">岐头</a></li>
+                <li><a href="#" onclick="showSelected(); showTab('rstbox', 4)">凤翔</a></li>
             </ul>
         </div>
 
+        <div class="rstbox rstbox-current">
+            <a href="#" onclick="showCart('cart', 'cart-basket')" class="rstblock"><img src="@Url.Action("Placeholder", "Image", new { width = 75, height = 75, text = "黄焖鸡米饭" })" />content1</a>
+            <a href="#" onclick="showCart('cart', 'cart-basket')" class="rstblock">content2</a>
+            <a href="#" class="rstblock">content3</a>
+            <a href="#" class="rstblock">content4</a>
+            <a href="#" class="rstblock">content5</a>
+            <a href="#" class="rstblock">content6</a>
+            <a href="#" class="rstblock">content7</a>
+            <a href="#" class="rstblock">content8</a>
+            <a href="#" class="rstblock">content9</a>
+            <a href="#" class="rstblock">content10</a>
+            <a href="#" class="rstblock">content11</a>
+            <a href="#" class="rstblock">content12</a>
+            <a href="#" class="rstblock">content13</a>
+            <a href="#" class="rstblock">content14</a>
+            <a href="#" class="rstblock">content15</a>
+            <a href="#" class="rstblock">content16</a>
+            <a href="#" class="rstblock">content17</a>
+        </div>
         <div class="rstbox">
-            <a href="#" class="rstblock">content1</a>
+            <a href="#" class="rstblock"><img src="@Url.Action("Placeholder", "Image", new { width = 75, height = 75, text = "1" })" />content1</a>
+            <a href="#" class="rstblock">content2</a>
+            <a href="#" class="rstblock">content3</a>
+            <a href="#" class="rstblock">content4</a>
+            <a href="#" class="rstblock">content5</a>
+            <a href="#" class="rstblock">content6</a>
+            <a href="#" class="rstblock">content7</a>
+            <a href="#" class="rstblock">content8</a>
+            <a href="#" class="rstblock">content9</a>
+            <a href="#" class="rstblock">content10</a>
+            <a href="#" class="rstblock">content11</a>
+            <a href="#" class="rstblock">content12</a>
+            <a href="#" class="rstblock">content13</a>
+            <a href="#" class="rstblock">content14</a>
+            <a href="#" class="rstblock">content15</a>
+            <a href="#" class="rstblock">content16</a>
+            <a href="#" class="rstblock">content17</a>
+        </div>
+        <div class="rstbox">
+            <a href="#" class="rstblock"><img src="@Url.Action("Placeholder", "Image", new { width = 75, height = 75, text = "2" })" />content1</a>
             <a href="#" class="rstblock">content2</a>
             <a href="#" class="rstblock">content3</a>
             <a href="#" class="rstblock">content4</a>
@@ -46,5 +81,42 @@
             <a href="#" class="rstblock">content7</a>
             <a href="#" class="rstblock">content8</a>
         </div>
+        <div class="rstbox">
+            <a href="#" class="rstblock"><img src="@Url.Action("Placeholder", "Image", new { width = 75, height = 75, text = "3" })" />content1</a>
+            <a href="#" class="rstblock">content2</a>
+            <a href="#" class="rstblock">content3</a>
+            <a href="#" class="rstblock">content4</a>
+            <a href="#" class="rstblock">content5</a>
+            <a href="#" class="rstblock">content6</a>
+            <a href="#" class="rstblock">content7</a>
+            <a href="#" class="rstblock">content8</a>
+        </div>
+        <div class="rstbox">
+            <a href="#" class="rstblock"><img src="@Url.Action("Placeholder", "Image", new { width = 75, height = 75, text = "4" })" />content1</a>
+            <a href="#" class="rstblock">content2</a>
+            <a href="#" class="rstblock">content3</a>
+            <a href="#" class="rstblock">content4</a>
+            <a href="#" class="rstblock">content5</a>
+            <a href="#" class="rstblock">content6</a>
+            <a href="#" class="rstblock">content7</a>
+            <a href="#" class="rstblock">content8</a>
+        </div>
+    </div>
+
+</div>
+
+@*use js to control it*@
+
+<div class="cart">
+    <div id="cart-basket" class="cart-basket" style="top:-40px">
+        <div class="cart-clear">
+            Cart
+            <a href="#" onclick="cartclear('footercheck')">[clear up]</a>
+        </div>
+        <div id="basic"></div>
+    </div>
+    <div class="cart-footer">
+        <span><i class="fa fa-shopping-cart fa-2x" style="color:#fff;padding:10px"></i></span>
+        <button id="footercheck" class="cart-footer-check"><i class="fa fa-check"></i></button>
     </div>
 </div>
