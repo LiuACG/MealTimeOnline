@@ -2,32 +2,55 @@
 
 @{
     ViewBag.Title = "Index";
+    ViewBag.PageTitle = "Index";
 }
-
-<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Value)
-        </th>
-        <th></th>
-    </tr>
+<table class="table table-striped table-hover table-bordered" id="bs-admin-people-category">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Value)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PeopleCategoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PeopleCategoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PeopleCategoryId })
-        </td>
-    </tr>
+    <tbody>
+        @{ int cnt = 0; }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(++cnt)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PeopleCategoryId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PeopleCategoryId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PeopleCategoryId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Styles {
+    @Styles.Render("~/Content/DataTables")
 }
 
-</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/DataTables")
+    <script>
+        $('#bs-admin-people-category').dataTable({
+            "columns": [
+                { "orderable": false, "searchable": false },
+                { "data": "Name" },
+                { "orderable": false, "searchable": false }
+            ]
+        });
+    </script>
+}
