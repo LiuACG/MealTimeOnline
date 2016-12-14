@@ -28,7 +28,7 @@ namespace MealTimeOnline.Controllers
             {
                 float mid = (lo + hi) / 2f;
                 SizeF sx = g.MeasureString(str, new Font("微软雅黑", mid));
-                if (sx.Width < (width*0.92f) && sx.Height < (height*0.88f))
+                if (sx.Width < (width*0.92f) && sx.Height < (height*0.96f))
                     lo = mid;
                 else
                     hi = mid;

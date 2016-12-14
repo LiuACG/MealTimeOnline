@@ -34,6 +34,35 @@ namespace MealTimeOnline
             bundles.Add(new ScriptBundle("~/bundles/nicescroll", "//cdn.bootcss.com/jquery.nicescroll/3.6.8/jquery.nicescroll.min.js").Include(
                       "~/Scripts/jquery.nicescroll.min.js"));
 
+            #region Common
+
+            bundles.Add(new ScriptBundle("~/bundles/DataTables").Include(
+                "~/Scripts/jquery.dataTables.min.js",
+                "~/Scripts/dataTables.bootstrap.min.js"
+                ));
+
+            bundles.Add(new StyleBundle("~/Content/DataTables").Include(
+                "~/Content/css/dataTables.bootstrap.min.css"));
+
+            #endregion // Common
+
+            #region Admin
+
+            bundles.Add(new StyleBundle("~/Content/style/admin").Include(
+                "~/Content/admin/bootstrap.css",
+                "~/Content/admin/bootstrap-reset.css",
+                "~/Content/admin/jquery-ui-1.10.3.css",
+                "~/Content/admin/style.css",
+                "~/Content/admin/style-responsive.css",
+                "~/Content/admin/Site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/Admin/Scripts").Include(
+                "~/Scripts/jquery-ui-1.9.2.custom.min.js",
+                "~/Scripts/jquery-migrate-1.2.1.min.js",
+                "~/Scripts/admin/scripts.js"));
+
+            #endregion // Admin
+
             bundles.UseCdn = true;
 #if !DEBUG
             BundleTable.EnableOptimizations = true;
