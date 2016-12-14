@@ -11,9 +11,10 @@ namespace MealTimeOnline.Models
 
         [Required]
         [StringLength(128)]
+        [Display(Name = "Role")]
         public string Name { get; set; } // 角色名
 
-        [Display(Name = "缩略名")]
+        [Display(Name = "Slug")]
         [Required]
         [StringLength(128)]
         [RegularExpression(@"^(\w+)$", ErrorMessage = "缩略名只能用由英文组成")]
