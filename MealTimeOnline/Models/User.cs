@@ -34,7 +34,7 @@ namespace MealTimeOnline.Models
         [StringLength(64, MinimumLength = 4)]
         public string Password { get; set; } // 密码
 
-        [Display(Name = "禁用")]
+        [Display(Name = "Banded")]
         [Required(ErrorMessage = "IsBanded不能为空")]
         public bool IsBanded { get; set; }
 
@@ -74,15 +74,12 @@ namespace MealTimeOnline.Models
         public string CardNumber { get; set; } // 用户校园卡号
 
         [DataType(DataType.Currency)]
-        public decimal RedPacket { get; set; } // 红包金额
-
-        [DataType(DataType.Currency)]
         public decimal Money { get; set; } // 在线余额
 
         public int Credits { get; set; } // 积分
         #endregion // 财富值
 
-        [Display(Name = "权限")]
+        [Display(Name = "Role")]
         [Required(ErrorMessage = "必须选择权限")]
         public int RoleId { get; set; }
         public virtual Role Role { get; set; }
