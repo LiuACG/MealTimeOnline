@@ -10,8 +10,14 @@ namespace MealTimeOnline.Areas.Admin
         {
             context.MapRoute(
                 name: "Admin Images",
-                url: "Image/{action}/{width}x{height}/{text}",
+                url: "Admin/Image/{action}/{width}x{height}/{text}",
                 defaults: new { controller = "Image", action = "Placeholder", text = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
+                name: "Admin Placeholder",
+                url: "Admin/Image/{action}/{setting}/{text}",
+                defaults: new { controller = "Image", action = "Imgx", text = UrlParameter.Optional }
             );
 
             context.MapRoute(

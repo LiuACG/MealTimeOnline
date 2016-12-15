@@ -31,7 +31,7 @@ namespace MealTimeOnline.Models.Dealer
 
         [Required]
         [StringLength(32768)]
-        [Display(Name = "申请理由，和摘要")]
+        [Display(Name = "申请理由")]
         public string Context { get; set; }
 
         [Required]
