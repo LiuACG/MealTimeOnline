@@ -8,8 +8,8 @@ namespace MealTimeOnline.Controllers
 {
     public class AccountController : Controller
     {
-        // GET: Account/Home
-        public ActionResult Home()
+        // GET: Account/Index
+        public ActionResult Index()
         {
             return View();
         }

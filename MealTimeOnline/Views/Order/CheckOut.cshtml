@@ -1,0 +1,19 @@
+﻿
+@{ViewBag.Title = "CheckOut";}
+
+@using MealTimeOnline.ViewModels.Order
+@model CheckOutViewModel
+
+<div>
+    餐厅id=@Model.cartVm.canteenId; <br /><br />
+    总计=@Model.TotalPrice; <br /><br />
+    配送费=@Model.ServicePrice;<br /><br />
+    订单项: <br />
+    @foreach (OrderViewModel item in Model.cartVm.orders)
+    {
+        <p>FoodId=@item.FoodId</p>
+        <p>Count=@item.cnt</p>
+    }
+
+</div>
+

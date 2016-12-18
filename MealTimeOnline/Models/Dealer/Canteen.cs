@@ -59,7 +59,7 @@ namespace MealTimeOnline.Models.Dealer
         [Display(Name = "图片")]
         public string Images { get; set; } // 一个食堂对应多个图片, 用Json数组保存图片地址
 
-        public virtual ICollection<Food> Foods { get; set; } // 一个食堂对应多个菜
+        public virtual List<Food> Foods { get; set; } // 一个食堂对应多个菜
         public virtual ICollection<Order> Orders { get; set; } // 一个食堂对应多个订单
         public virtual ICollection<Evaluate> Evaluates { get; set; } // 一个食堂对应多个评价
     }
