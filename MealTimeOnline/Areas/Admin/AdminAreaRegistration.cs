@@ -1,12 +1,13 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 
 namespace MealTimeOnline.Areas.Admin
 {
-    public class AdminAreaRegistration : AreaRegistration 
+    public class AdminAreaRegistration : AreaRegistration
     {
         public override string AreaName => "Admin";
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 name: "Admin Images",
@@ -18,6 +19,12 @@ namespace MealTimeOnline.Areas.Admin
                 name: "Admin Placeholder",
                 url: "Admin/Image/{action}/{setting}/{text}",
                 defaults: new { controller = "Image", action = "Imgx", text = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
+                name: "Canteen foods manager",
+                url: "Admin/Canteens/{cid}/Foods/{action}/{id}",
+                defaults: new { controller = "Foods", action = "Index", id = UrlParameter.Optional }
             );
 
             context.MapRoute(

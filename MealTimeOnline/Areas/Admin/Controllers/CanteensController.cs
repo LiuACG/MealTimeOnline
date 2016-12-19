@@ -53,6 +53,7 @@ namespace MealTimeOnline.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                canteen.EvaluateNum = 5;
                 db.Canteens.Add(canteen);
                 db.SaveChanges();
                 return RedirectToAction("Index");

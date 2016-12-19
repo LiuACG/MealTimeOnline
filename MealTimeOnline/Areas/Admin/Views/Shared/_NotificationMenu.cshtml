@@ -3,7 +3,7 @@
         <li>
             <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
                 <i class="fa fa-tasks"></i>
-                <span class="badge">8</span>
+                <!--<span class="badge">8</span>-->
             </a>
             <div class="dropdown-menu dropdown-menu-head pull-right">
                 <h5 class="title">You have 8 pending task</h5>
@@ -75,7 +75,7 @@
         <li>
             <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
                 <i class="fa fa-envelope-o"></i>
-                <span class="badge">5</span>
+                <!--<span class="badge">5</span>-->
             </a>
             <div class="dropdown-menu dropdown-menu-head pull-right">
                 <h5 class="title">You have 5 Mails </h5>
@@ -132,7 +132,7 @@
         <li>
             <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
                 <i class="fa fa-bell-o"></i>
-                <span class="badge">4</span>
+                <!--<span class="badge">4</span>-->
             </a>
             <div class="dropdown-menu dropdown-menu-head pull-right">
                 <h5 class="title">Notifications</h5>
@@ -172,7 +172,10 @@
         <li>
             <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                 <img src="@Url.Action("Placeholder", "Image", new { width = 100, height = 100, text = "Avatar" })" alt="" />
-                John Doe
+                @{
+                    var db = new MealTimeOnline.DataAccessLayer.MtoDataContext();  
+                }
+                @db.Users.Find(int.Parse(HttpContext.Current.User.Identity.Name)).Username
                 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-usermenu pull-right">

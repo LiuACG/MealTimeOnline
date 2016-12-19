@@ -92,6 +92,48 @@ namespace MealTimeOnline.Controllers
             return View("CheckOut", checkVm);
         }
         #endregion
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Submit(string orders)
+        {
+            CheckOutViewModel data = System.Web.Helpers.Json.Decode<CheckOutViewModel>(orders);
+
+            int canteenId = data.cartVm.canteenId;
+            int userId = int.Parse(HttpContext.User.Identity.Name);
+
+            // Create order
+            Order order = new Order
+            {
+                CanteenId = canteenId,
+                OrderNum = data.cartVm.orders.Count,
+                OrderTime = DateTime.Now,
+                PaymentId = db.Payments.First().PaymentId,
+                OrderStatus = OrderStatus.Pending,
+                SumPrice = data.TotalPrice,
+                UserId = userId
+            };
+            db.Orders.Add(order);
+            db.SaveChanges();
+
+            // Create order items
+            foreach (var item in data.cartVm.orders)
+            {
+                OrderItem oi = new OrderItem
+                {
+                    CanteenId = canteenId,
+                    UserId = userId,
+                    Count = item.cnt,
+                    FoodId = item.FoodId,
+                    OrderId = order.OrderId,
+                    Price = db.Foods.Find(item.FoodId).Price * item.cnt
+                };
+                db.OrderItems.Add(oi);
+            }
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "Account");
+        }
     }
     #endregion
 }

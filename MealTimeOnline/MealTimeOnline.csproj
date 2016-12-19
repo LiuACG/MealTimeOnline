@@ -177,6 +177,7 @@
     <Compile Include="Areas\Admin\Controllers\CanteensController.cs" />
     <Compile Include="Areas\Admin\Controllers\EnterRegistersController.cs" />
     <Compile Include="Areas\Admin\Controllers\FoodCategoriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FoodsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ImageController.cs" />
     <Compile Include="Areas\Admin\Controllers\PaymentsController.cs" />
@@ -308,6 +309,11 @@
     <Content Include="Areas\Admin\Views\EnterRegisters\Details.cshtml" />
     <Content Include="Areas\Admin\Views\EnterRegisters\Index.cshtml" />
     <Content Include="Areas\Admin\Views\EnterRegisters\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Foods\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Foods\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Foods\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Foods\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Foods\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

@@ -52,33 +52,36 @@ function showCart(obj) {
     if (content[0].classList.contains('cart-current') == false)
         content[0].classList.add('cart-current');
 
-    //show cart-info
-    //var contentinfo = document.getElementById('cart-basket');
-    //var beforecontent = document.getElementById('basic');
-    //var newDiv = document.createElement('div');
-    //newDiv.classList.add('cart-info');
-    //console.log(newDiv);
-    //
-    //contentinfo.insertBefore(newDiv, beforecontent);
-    $('#cart-basket').append('<div class="cart-info" data-food="' + $(obj).parent().attr('data-food') + '">'
-        + '<span style="line-height:40px">' + $(obj).parent().attr('data-food-name') + '</span><span style="line-height:40px" class="pull-right">' + $(obj).parent().attr('data-food-cnt') + '</span>' +
-        '</div>');
+    var foodId = $(obj).parent().attr('data-food').trim();
+    var tmp = $('#cart-basket .cart-info').find('div[data-food=' + foodId + ']');
+    console.log(tmp);
+    if (tmp.length == 0) {
+        //show cart-info
+        $('#cart-basket')
+            .append('<div class="cart-info" data-food="' +
+                foodId +
+                '">' +
+                '<span style="line-height:40px">' +
+                $(obj).parent().attr('data-food-name') +
+                '</span><span style="line-height:40px" class="pull-right">' +
+                $(obj).parent().attr('data-food-cnt') +
+                '</span>' +
+                '</div>');
 
-    //change index
-    var eles = document.getElementById("cart-basket");
-    var m = parseInt(eles.style.top);
-    eles.style.top = (m + (-40)) + 'px';
+        //change index
+        var eles = document.getElementById("cart-basket");
+        var m = parseInt(eles.style.top);
+        eles.style.top = (m + (-40)) + 'px';
+    }
 
     //remove disabled
-    var cartcheck = document.getElementById('footercheck');
-    if (cartcheck.classList.contains('disabled'))
-        cartcheck.classList.remove('disabled');
+    $('#footercheck').removeClass('disabled');
 }
 
 function UpdateCard(id, cnt) {
     var sum = 0;
     $('#cart-basket .cart-info').each(function () {
-        var flag = true
+        var flag = true;
         if ($(this).attr('data-food') == id) {
             $(this).find('.pull-right').eq(0).html(cnt);
             if (cnt == 0) {
@@ -94,6 +97,9 @@ function UpdateCard(id, cnt) {
         }
     });
     $('#showprices').html(sum);
+    if (sum == 0) {
+        $('#footercheck').addClass("disabled");
+    }
 }
 
 function cartclear(contentCheckButton) {
@@ -101,6 +107,22 @@ function cartclear(contentCheckButton) {
     eles.style.top = (-40) + 'px';
 
     cnt = 0;
+
+    $('.cart-basket .cart-info').each(function () {
+        $(this).remove();
+    });
+
+    $('.food-cnt').each(function () {
+        $(this).attr('data-food-cnt', 0);
+    });
+    $('.food-add-cart').each(function () {
+        $(this).show();
+    });
+    $('.food-cart-cnt').each(function () {
+        $(this).hide();
+    });
+
+    $('#showprices').html(0);
 
     //button change
     $("#footercheck").addClass("disabled");

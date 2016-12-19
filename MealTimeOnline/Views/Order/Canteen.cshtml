@@ -31,26 +31,22 @@
         <div class="Business-sorts">
             <span>食堂分类：</span>
             <ul>
-                <li><a class="current" href="#" onclick="showSelected(); showTab('rstbox', 0)">全部餐厅</a></li>
                 @for (int i = 0; i < Model.canteen.Count; ++i)
                 {
-                    <li><a href="#" onclick="showSelected(); showTab('rstbox', @(i + 1))" @Model.canteen[i].CanteenId>@Model.canteen[i].CanteenName</a></li>
+                    <li><a class="@if(i==0) {@("current")}" href="#" onclick="showSelected(); showTab('rstbox', @(i));" @Model.canteen[i].CanteenId>@Model.canteen[i].CanteenName</a></li>
                 }
-                <!--<li><a href="#" onclick="showSelected(); showTab('rstbox', 2)" @@Model.canteen[1].CanteenId>@@Model.canteen[1].CanteenName</a></li>-->
             </ul>
         </div>
 
         <div class="row">
-            <!--.col-xs-12.col-sm-6.col-md-4.col-lg-3.food-item[data-canteen=$$]{Item $$}-->
-            <!--.col-xs-12.col-sm-6.col-md-4.col-lg-3*20>.food-item[data-canteen=$$]>(img[src="http://placeholder.cn/80x80",alt=Food_$$]+{Item $$})-->
-            <div class="rstbox rstbox-current">
-                @for (int j = 0; j < Model.canteen.Count; j++)
-                {
-                    for (int k = 0; k < Model.canteen[j].Foods.Count; k++)
+            @for (int j = 0; j < Model.canteen.Count; j++)
+            {
+                <div class="rstbox @if(j == 0) {@("rstbox-current")}">
+                    @for (int k = 0; k < Model.canteen[j].Foods.Count; k++)
                     {
                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                             <div class="food-box">
-                                <img src="http://placeholder.cn/80x80" alt="food_01">
+                                <img src="@Url.Action("Placeholder", "Image", new { width = 80, height = 80, text = Model.canteen[j].Foods[k].FoodName })" alt="food_01">
                                 <div class="food-info">
                                     <a href="#" class="food-name">@Model.canteen[j].Foods[k].FoodName</a>
                                     <span class="food-star">
@@ -70,39 +66,8 @@
                             </div>
                         </div>
                     }
-                }
-            </div>
-            @for (int j = 0; j < Model.canteen.Count; j++)
-            {
-                <div class="rstbox">
-                    @for (int k = 0; k < Model.canteen[j].Foods.Count; k++)
-                    {
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="food-box">
-                                <img src="http://placeholder.cn/80x80" alt="food_01">
-                                <div class="food-info">
-                                    <a href="#" class="food-name">@Model.canteen[j].Foods[k].FoodName</a>
-                                    <span class="food-star">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>
-                                    </span>
-                                    <span class="food-sale">月售xxxx单</span>
-                                    <span class="food-cost"><i class="fa fa-rmb"></i> @Model.canteen[j].Foods[k].Price</span>
-                                    <div class="food-cnt" data-food="@Model.canteen[j].Foods[k].FoodId" data-food-cnt="0" data-food-price="@Model.canteen[j].Foods[k].Price" data-food-name="@Model.canteen[j].Foods[k].FoodName">
-                                        <div class="food-add-cart" onclick="showCart(this)"><span>加入购物车</span></div>
-                                        <div class="food-cart-cnt" hidden>
-                                            <span class="pull-left">－</span>
-                                            <input class="food-cart-num" title="" disabled value="1" />
-                                            <span class="pull-right">＋</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    }
                 </div>
             }
-
-            <!--.col-xs-12.col-sm-6.col-md-4.col-lg-3*20>.canteen-box[data-canteen=$$]>(img[src="http://placeholder.cn/80x80",alt=Canteen_$$]+(.canteen-info>(a.canteen-name[href=#]{Canteen $$})+(span.canteen-star>(i.fa.fa-star*4+i.fa.fa-star-o))+span.canteen-sale{月售xxxx单}+span.canteen-cost>({配送费}+i.fa.fa-rmb+{1})))-->
         </div>
     </div>
 </div>
