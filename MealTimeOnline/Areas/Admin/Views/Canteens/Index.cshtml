@@ -29,7 +29,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CanteenName)
+                    <a href="@Url.Action("Index", "Foods", new {cid = item.CanteenId})">@Html.DisplayFor(modelItem => item.CanteenName)</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CanteenCategory.Value)

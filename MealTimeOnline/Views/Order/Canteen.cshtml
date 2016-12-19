@@ -1,4 +1,8 @@
-﻿
+﻿@using MealTimeOnline.ViewModels.Order
+@using MealTimeOnline.Models.Dealer
+@using MealTimeOnline.Models.Commodity
+@model CanteenViewModel
+
 @{ViewBag.Title = "Canteen";}
 
 <div class="container clearfix">
@@ -11,8 +15,10 @@
     </div>
 
     <div class="navbar-right navbar-form">
-        <input class="search-input" placeholder="Search foods" />
-        <i class="fa fa-search"></i>
+        <div class="input-group">
+            <input class="search-input form-control" placeholder="Search foods" />
+            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+        </div>
     </div>
 
     <div class="container-fluid">
@@ -25,84 +31,45 @@
         <div class="Business-sorts">
             <span>食堂分类：</span>
             <ul>
-                <li><a href="#" class="current" onclick="showSelected(); showTab('rstbox', 0)">全部食堂</a></li>
-                <li><a href="#" onclick="showSelected(); showTab('rstbox', 1)">龙腾</a></li>
-                <li><a href="#" onclick="showSelected(); showTab('rstbox', 2)">香晖</a></li>
-                <li><a href="#" onclick="showSelected(); showTab('rstbox', 3)">岐头</a></li>
-                <li><a href="#" onclick="showSelected(); showTab('rstbox', 4)">凤翔</a></li>
+                @for (int i = 0; i < Model.canteen.Count; ++i)
+                {
+                    <li><a class="@if(i==0) {@("current")}" href="#" onclick="showSelected(); showTab('rstbox', @(i));" @Model.canteen[i].CanteenId>@Model.canteen[i].CanteenName</a></li>
+                }
             </ul>
         </div>
 
-        <div class="rstbox rstbox-current">
-            <a href="#" onclick="showCart('cart', 'cart-basket')" class="rstblock"><img src="@Url.Action("Placeholder", "Image", new { width = 75, height = 75, text = "黄焖鸡米饭" })" />content1</a>
-            <a href="#" onclick="showCart('cart', 'cart-basket')" class="rstblock">content2</a>
-            <a href="#" class="rstblock">content3</a>
-            <a href="#" class="rstblock">content4</a>
-            <a href="#" class="rstblock">content5</a>
-            <a href="#" class="rstblock">content6</a>
-            <a href="#" class="rstblock">content7</a>
-            <a href="#" class="rstblock">content8</a>
-            <a href="#" class="rstblock">content9</a>
-            <a href="#" class="rstblock">content10</a>
-            <a href="#" class="rstblock">content11</a>
-            <a href="#" class="rstblock">content12</a>
-            <a href="#" class="rstblock">content13</a>
-            <a href="#" class="rstblock">content14</a>
-            <a href="#" class="rstblock">content15</a>
-            <a href="#" class="rstblock">content16</a>
-            <a href="#" class="rstblock">content17</a>
-        </div>
-        <div class="rstbox">
-            <a href="#" class="rstblock"><img src="@Url.Action("Placeholder", "Image", new { width = 75, height = 75, text = "1" })" />content1</a>
-            <a href="#" class="rstblock">content2</a>
-            <a href="#" class="rstblock">content3</a>
-            <a href="#" class="rstblock">content4</a>
-            <a href="#" class="rstblock">content5</a>
-            <a href="#" class="rstblock">content6</a>
-            <a href="#" class="rstblock">content7</a>
-            <a href="#" class="rstblock">content8</a>
-            <a href="#" class="rstblock">content9</a>
-            <a href="#" class="rstblock">content10</a>
-            <a href="#" class="rstblock">content11</a>
-            <a href="#" class="rstblock">content12</a>
-            <a href="#" class="rstblock">content13</a>
-            <a href="#" class="rstblock">content14</a>
-            <a href="#" class="rstblock">content15</a>
-            <a href="#" class="rstblock">content16</a>
-            <a href="#" class="rstblock">content17</a>
-        </div>
-        <div class="rstbox">
-            <a href="#" class="rstblock"><img src="@Url.Action("Placeholder", "Image", new { width = 75, height = 75, text = "2" })" />content1</a>
-            <a href="#" class="rstblock">content2</a>
-            <a href="#" class="rstblock">content3</a>
-            <a href="#" class="rstblock">content4</a>
-            <a href="#" class="rstblock">content5</a>
-            <a href="#" class="rstblock">content6</a>
-            <a href="#" class="rstblock">content7</a>
-            <a href="#" class="rstblock">content8</a>
-        </div>
-        <div class="rstbox">
-            <a href="#" class="rstblock"><img src="@Url.Action("Placeholder", "Image", new { width = 75, height = 75, text = "3" })" />content1</a>
-            <a href="#" class="rstblock">content2</a>
-            <a href="#" class="rstblock">content3</a>
-            <a href="#" class="rstblock">content4</a>
-            <a href="#" class="rstblock">content5</a>
-            <a href="#" class="rstblock">content6</a>
-            <a href="#" class="rstblock">content7</a>
-            <a href="#" class="rstblock">content8</a>
-        </div>
-        <div class="rstbox">
-            <a href="#" class="rstblock"><img src="@Url.Action("Placeholder", "Image", new { width = 75, height = 75, text = "4" })" />content1</a>
-            <a href="#" class="rstblock">content2</a>
-            <a href="#" class="rstblock">content3</a>
-            <a href="#" class="rstblock">content4</a>
-            <a href="#" class="rstblock">content5</a>
-            <a href="#" class="rstblock">content6</a>
-            <a href="#" class="rstblock">content7</a>
-            <a href="#" class="rstblock">content8</a>
+        <div class="row">
+            @for (int j = 0; j < Model.canteen.Count; j++)
+            {
+                <div class="rstbox @if(j == 0) {@("rstbox-current")}">
+                    @for (int k = 0; k < Model.canteen[j].Foods.Count; k++)
+                    {
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="food-box">
+                                <img src="@Url.Action("Placeholder", "Image", new { width = 80, height = 80, text = Model.canteen[j].Foods[k].FoodName })" alt="food_01">
+                                <div class="food-info">
+                                    <a href="#" class="food-name">@Model.canteen[j].Foods[k].FoodName</a>
+                                    <span class="food-star">
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>
+                                    </span>
+                                    <span class="food-sale">月售xxxx单</span>
+                                    <span class="food-cost"><i class="fa fa-rmb"></i> @Model.canteen[j].Foods[k].Price</span>
+                                    <div class="food-cnt" data-food="@Model.canteen[j].Foods[k].FoodId" data-food-cnt="0" data-food-price="@Model.canteen[j].Foods[k].Price" data-food-name="@Model.canteen[j].Foods[k].FoodName">
+                                        <div class="food-add-cart"><span>加入购物车</span></div>
+                                        <div class="food-cart-cnt" hidden>
+                                            <span class="pull-left">－</span>
+                                            <input class="food-cart-num" title="" disabled value="1" />
+                                            <span class="pull-right">＋</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
         </div>
     </div>
-
 </div>
 
 @*use js to control it*@
@@ -116,7 +83,12 @@
         <div id="basic"></div>
     </div>
     <div class="cart-footer">
-        <span><i class="fa fa-shopping-cart fa-2x" style="color:#fff;padding:10px"></i></span>
-        <button id="footercheck" class="cart-footer-check"><i class="fa fa-check"></i></button>
+        <span><i class="fa fa-shopping-cart fa-2x" style="color:#fff;padding:10px"></i> <i class="fa fa-rmb fa-lg text-warning"></i></span>
+        <span id="showprices" class="text-warning"></span>
+        <form action="/Order/Checkout" method="post">
+            <button type="submit" id="footercheck" class="cart-footer-check"><i class="fa fa-check"></i></button>
+        </form>
     </div>
 </div>
+
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/npm.js"></script>

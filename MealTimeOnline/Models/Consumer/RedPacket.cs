@@ -19,6 +19,7 @@ namespace MealTimeOnline.Models.Consumer
         public decimal Money { get; set; }
 
         [ForeignKey("User")]
+        [Display(Name = "用户名")]
         public int UserId { get; set; }
         public virtual User User { get; set; }
     }

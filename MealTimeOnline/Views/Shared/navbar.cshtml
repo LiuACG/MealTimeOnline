@@ -27,16 +27,34 @@
                     </ul>
                 </li>
 
+
                 <li>
                     <form action="#" class="navbar-form clearfix">
-                        <div class="form-group col-xs-6" style="padding-left: 2px; padding-right: 2px">
-                            <a href="/Auth/Login" id="nav-left" role="button" class="btn btn-default btn-block">Log in</a>
-                        </div>
-                        <div class="form-group col-xs-6" style="padding-left: 2px; padding-right: 2px">
-                            <a href="/Auth/SignUp" id="nav-right" role="button" class="btn btn-success btn-block">Sign up</a>
-                        </div>
+                        @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                        {
+                            <div class="form-group col-xs-6" style="padding-left: 2px; padding-right: 2px">
+                                <a href="/Auth/Login" id="nav-left" role="button" class="btn btn-default btn-block">Log in</a>
+                            </div>
+                            <div class="form-group col-xs-6" style="padding-left: 2px; padding-right: 2px">
+                                <a href="/Auth/SignUp" id="nav-right" role="button" class="btn btn-success btn-block">Sign up</a>
+                            </div>
+                        }
+                        else
+                        {
+                            var db = new MealTimeOnline.DataAccessLayer.MtoDataContext();
+                            var id = int.Parse(HttpContext.Current.User.Identity.Name);
+                            var curUser = db.Users.Single(c => c.Id == id);
+
+                            <div class="form-group">
+                                Hello, <a href="@Url.Action("Index", "Account")">@curUser.Username</a>
+                            </div>
+                            <div class="form-group" style="padding-left: 2px; padding-right: 2px">
+                                <a href="@Url.Action("Logout", "Auth")" role="button" class="btn btn-default btn-block">Logout</a>
+                            </div>
+                        }
                     </form>
                 </li>
+
             </ul>
         </div>
     </div>

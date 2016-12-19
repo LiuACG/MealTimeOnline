@@ -7,117 +7,116 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MealTimeOnline.DataAccessLayer;
-using MealTimeOnline.Models.Dealer;
+using MealTimeOnline.Models.Consumer;
 
 namespace MealTimeOnline.Areas.Admin.Controllers
 {
-    public class CanteensController : Controller
+    public class RedPacketsController : Controller
     {
         private MtoDataContext db = new MtoDataContext();
 
-        // GET: Admin/Canteens
+        // GET: Admin/RedPackets
         public ActionResult Index()
         {
-            var canteens = db.Canteens.Include(c => c.CanteenCategory);
-            return View(canteens.ToList());
+            var redPackets = db.RedPackets.Include(r => r.User);
+            return View(redPackets.ToList());
         }
 
-        // GET: Admin/Canteens/Details/5
-        public ActionResult Details(int? id)
+        // GET: Admin/RedPackets/Details/5
+        public ActionResult Details(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Canteen canteen = db.Canteens.Find(id);
-            if (canteen == null)
+            RedPacket redPacket = db.RedPackets.Find(id);
+            if (redPacket == null)
             {
                 return HttpNotFound();
             }
-            return View(canteen);
+            return View(redPacket);
         }
 
-        // GET: Admin/Canteens/Create
+        // GET: Admin/RedPackets/Create
         public ActionResult Create()
         {
-            ViewBag.CanteenCategoryId = new SelectList(db.CanteenCategories, "CanteenCategoryId", "Value");
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Username");
             return View();
         }
 
-        // POST: Admin/Canteens/Create
+        // POST: Admin/RedPackets/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CanteenId,CanteenName,CanteenAddress,CanteenCategoryId,ServicePrice,CanteenInfo,SendWay,ShopHours,Notice,UseTime,EvaluateNum,SellNum,Images")] Canteen canteen)
+        public ActionResult Create([Bind(Include = "RedPacketId,Deadline,Money,UserId")] RedPacket redPacket)
         {
             if (ModelState.IsValid)
             {
-                canteen.EvaluateNum = 5;
-                db.Canteens.Add(canteen);
+                db.RedPackets.Add(redPacket);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CanteenCategoryId = new SelectList(db.CanteenCategories, "CanteenCategoryId", "Value", canteen.CanteenCategoryId);
-            return View(canteen);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Username", redPacket.UserId);
+            return View(redPacket);
         }
 
-        // GET: Admin/Canteens/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Admin/RedPackets/Edit/5
+        public ActionResult Edit(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Canteen canteen = db.Canteens.Find(id);
-            if (canteen == null)
+            RedPacket redPacket = db.RedPackets.Find(id);
+            if (redPacket == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CanteenCategoryId = new SelectList(db.CanteenCategories, "CanteenCategoryId", "Value", canteen.CanteenCategoryId);
-            return View(canteen);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Username", redPacket.UserId);
+            return View(redPacket);
         }
 
-        // POST: Admin/Canteens/Edit/5
+        // POST: Admin/RedPackets/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CanteenId,CanteenName,CanteenAddress,CanteenCategoryId,ServicePrice,CanteenInfo,SendWay,ShopHours,Notice,UseTime,EvaluateNum,SellNum,Images")] Canteen canteen)
+        public ActionResult Edit([Bind(Include = "RedPacketId,Deadline,Money,UserId")] RedPacket redPacket)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(canteen).State = EntityState.Modified;
+                db.Entry(redPacket).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CanteenCategoryId = new SelectList(db.CanteenCategories, "CanteenCategoryId", "Value", canteen.CanteenCategoryId);
-            return View(canteen);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Username", redPacket.UserId);
+            return View(redPacket);
         }
 
-        // GET: Admin/Canteens/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Admin/RedPackets/Delete/5
+        public ActionResult Delete(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Canteen canteen = db.Canteens.Find(id);
-            if (canteen == null)
+            RedPacket redPacket = db.RedPackets.Find(id);
+            if (redPacket == null)
             {
                 return HttpNotFound();
             }
-            return View(canteen);
+            return View(redPacket);
         }
 
-        // POST: Admin/Canteens/Delete/5
+        // POST: Admin/RedPackets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(long id)
         {
-            Canteen canteen = db.Canteens.Find(id);
-            db.Canteens.Remove(canteen);
+            RedPacket redPacket = db.RedPackets.Find(id);
+            db.RedPackets.Remove(redPacket);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
