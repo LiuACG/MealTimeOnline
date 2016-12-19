@@ -1,4 +1,5 @@
-﻿
+﻿@using MealTimeOnline.Models.Consumer
+
 @{
     ViewBag.Title = "Home";
 }
@@ -28,20 +29,37 @@
             <div class="spt"><span></span></div>
             <div class="simple-look text-center"><a href="#"><p>Account balance</p><p>@curUser.Money RMB</p></a></div>
         </div>
-        
+
         <div>
             <div>最近订单</div>
             <table class="table">
                 <tbody>
-                <tr>
-                    <td><img src="@Url.Action("Placeholder", "Image", new {width = 70, height = 70, text = "商家"})"/></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <tr>
+                        <td><img src="@Url.Action("Placeholder", "Image", new {width = 70, height = 70, text = @curUser.Orders.Single(c => c.UserId == id).Canteen.CanteenName})" /></td>
+                        <td style="position:relative">
+                            @curUser.Orders.Single(c => c.UserId == id).Canteen.CanteenName
+                            <ul style="position:absolute; top:40px; left:-30px; font-size:12px">
+                                @foreach (OrderItem item in curUser.Orders.Single(c => c.UserId == id).OrderItems)
+                                {
+                                    <li class="small left">@item.Food.FoodName</li>
+                                }
+                            </ul>
+                            <span class="small" style="position:absolute; top:62px; left:10px">共 <span class="text-danger">@curUser.Orders.Single(c => c.UserId == id).OrderItems.Count</span> 份商品</span>
+                        </td>
+                        <td></td>
+                        <td>
+                            <h3 class="pull-right text-danger">
+                                <span class="small"><i class="fa fa-rmb text-danger"></i></span> @curUser.Orders.Single(c => c.UserId == id).SumPrice
+                            </h3>
+                        </td>
+                        <td>
+                            <span class="text-center">
+                                @curUser.Orders.Single(c => c.UserId == id).OrderStatus
+                        </span>
+                    </td>
                 </tr>
-                </tbody>
-            </table>
-        </div>
+            </tbody>
+        </table>
     </div>
+</div>
 </div>
